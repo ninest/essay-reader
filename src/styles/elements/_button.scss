@@ -1,0 +1,23 @@
+.button {
+  display: inline-block;
+  padding: var(--s-2) var(--s-4);
+
+  border: none;
+  @include radius(md);
+
+  background-color: var(--button);
+
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--button-text);
+
+  @include transition(basic);
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 var(--s-1) var(--button-focus);
+  }
+}

@@ -1,0 +1,38 @@
+$colors: (
+  'light-theme': (
+    accent: raw-color(purple, 500),
+    accent-highlight: raw-color(purple, 300),
+    background: white,
+    title: raw-color(gray, 900),
+    text: raw-color(gray, 800),
+    input: raw-color(gray, 100),
+    button: raw-color(purple, 600),
+    button-text: raw-color(blueGray, 50),
+    button-hover: raw-color(purple, 400),
+    button-focus: raw-color(purple, 200)
+  ),
+  'dark-theme': (
+    accent: raw-color(purple, 400),
+    accent-highlight: raw-color(purple, 900),
+    background: raw-color(gray, 900),
+    title: raw-color(gray, 100),
+    text: raw-color(gray, 200),
+
+    input: raw-color(gray, 800),
+    button: raw-color(purple, 900),
+    button-text: raw-color(blueGray, 200),
+    button-hover: raw-color(purple, 800),
+    button-focus: raw-color(purple, 500)
+  )
+);
+
+// Generate SCSS variables
+$themes: 'dark-theme', 'light-theme';
+
+@each $theme in $themes {
+  .#{$theme} {
+    @each $var-name, $color in map-get($colors, $theme) {
+      --#{$var-name}: #{$color};
+    }
+  }
+}

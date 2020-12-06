@@ -1,0 +1,32 @@
+input,
+textarea {
+  display: block;
+  width: var(--w-full);
+
+  padding: var(--s-4);
+
+  border: none;
+  @include radius(default);
+
+  background-color: var(--input);
+  color: var(--text);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 var(--s-1) var(--accent-highlight);
+  }
+
+  resize: vertical;
+  @include transition(basic);
+}
+
+form {
+  label {
+    display: block;
+  }
+
+  input,
+  textarea {
+    margin-bottom: var(--s-6);
+  }
+}

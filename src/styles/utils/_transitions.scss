@@ -1,0 +1,8 @@
+$transitions: (
+  basic: 0.2s all,
+  fast: 0.1s all
+);
+
+@mixin transition($t) {
+  transition: map-get($transitions, $t)
+}

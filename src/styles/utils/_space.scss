@@ -1,0 +1,27 @@
+$sizes: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 24, 32, 40, 48, 56, 64, 72, 88;
+
+:root {
+  // for margins and paddings
+  @each $size in $sizes {
+    --s-#{$size}: #{$size * 0.25rem};
+  }
+
+  // spacing site-side
+  --s-x: var(--s-12);
+
+  // Increase x-length for different screen sizes
+  @include breakpoint(md) {
+    --s-x: var(--s-40);
+  }
+
+  @include breakpoint(lg) {
+    --s-x: var(--s-56);
+  }
+
+  @include breakpoint(xl) {
+    --s-x: var(--s-88);
+  }
+
+  // Percentsages
+  --w-full: 100%;
+}
