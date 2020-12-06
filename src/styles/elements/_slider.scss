@@ -1,0 +1,20 @@
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  height: var(--s-4);
+  width: var(--s-4);
+  background: var(--accent);
+
+  @include radius(default);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  display: block;
+  width: var(--w-full);
+
+  background: var(--accent-highlight);
+
+  @include radius(default);
+}

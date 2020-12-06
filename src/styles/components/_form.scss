@@ -1,4 +1,4 @@
-input,
+input[type='text'],
 textarea {
   display: block;
   width: var(--w-full);
@@ -34,23 +34,60 @@ select {
   }
 }
 
-form {
-  label {
-    display: block;
-  }
+.form {
+  list-style: none;
+  &-group {
+    &-essay {
+      textarea {
+        height: 35vh;
+      }
+    }
+    &-sliders {
+      .slider-group {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
 
-  input,
-  textarea {
+        label {
+          font-weight: 600;
+        }
+      }
+    }
+
+    &-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     margin-bottom: var(--s-6);
   }
-
-  textarea {
-    height: 50vh;
-  }
-
-  .options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
+
+// form {
+//   label {
+//     display: block;
+//   }
+
+//   input,
+//   textarea {
+//     margin-bottom: var(--s-6);
+//   }
+
+//   textarea {
+//     height: 50vh;
+//   }
+
+//   .sliders {
+//     div {
+//       display: flex;
+//       // align-items: center;
+//       justify-content: center;
+//     }
+//   }
+
+//   .options {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//   }
+// }
