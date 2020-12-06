@@ -7,16 +7,33 @@
       id="essay-space"
     ></textarea>
 
-    <button type="submit" class="button">Read</button>
+    <div class="sliders">
+      <input type="range" name="" id="">
+    </div>
+
+    <div class="options">
+      <select v-model="selVoice">
+        <option v-for="voice in voices" :key="voice" :value="voice">
+          {{ voice.name }}
+        </option>
+      </select>
+
+      <button type="submit" class="button">Read</button>
+    </div>
   </form>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import useSpeech from '@/hooks/useSpeech';
 
+const { voices, options, say } = useSpeech();
 const essay = ref<string>('');
+const selVoice = ref<SpeechSynthesisVoice>(options.voice);
 
 function read() {
-  console.log(essay.value);
+  options.text = essay.value;
+  options.voice = selVoice.value;
+  say();
 }
 </script>

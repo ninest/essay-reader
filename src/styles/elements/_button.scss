@@ -1,9 +1,13 @@
-.button {
-  display: inline-block;
+@mixin button {
   padding: var(--s-2) var(--s-4);
-
   border: none;
   @include radius(md);
+}
+
+.button {
+  display: inline-block;
+
+  @include button;
 
   background-color: var(--button);
 
@@ -21,3 +25,4 @@
     box-shadow: 0 0 0 var(--s-1) var(--button-focus);
   }
 }
+

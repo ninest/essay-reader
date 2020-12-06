@@ -20,6 +20,20 @@ textarea {
   @include transition(basic);
 }
 
+select {
+  display: block;
+  padding: var(--s-2);
+  border: none;
+  @include radius(default);
+
+  background-color: var(--input);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 var(--s-1) var(--accent-highlight);
+  }
+}
+
 form {
   label {
     display: block;
@@ -28,5 +42,15 @@ form {
   input,
   textarea {
     margin-bottom: var(--s-6);
+  }
+
+  textarea {
+    height: 50vh;
+  }
+
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
