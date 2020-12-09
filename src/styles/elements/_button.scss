@@ -4,25 +4,54 @@
   @include radius(md);
 }
 
+$button-variants: main, danger;
+
 .button {
   display: inline-block;
 
   @include button;
 
-  background-color: var(--button);
-
   text-decoration: none;
   font-weight: 600;
-  color: var(--button-text);
 
   @include transition(basic);
 
   &:hover {
-    background-color: var(--button-hover);
   }
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 var(--s-1) var(--button-focus);
+  }
+
+  @each $variant in $button-variants {
+    &-#{$variant} {
+      background-color: var(--button-#{$variant}-bg);
+      color: var(--button-#{$variant}-text);
+      
+      &.button-secondary {
+        background-color: unset;
+        color: var(--button-#{$variant}-hover);
+        
+        &:hover {
+          color: var(--button-#{$variant}-text);
+        }
+      }
+
+      &:hover {
+        background-color: var(--button-#{$variant}-hover);
+      }
+      &:focus {
+        box-shadow: 0 0 0 var(--s-1) var(--button-#{$variant}-focus);
+      }
+    }
   }
 }
 
+.button-group {
+  display: flex;
+
+  .button {
+    &:not(:last-child) {
+      margin-right: var(--s-2);
+    }
+  }
+}
